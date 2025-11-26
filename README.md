@@ -1,16 +1,13 @@
 # SEQUENCE 2 : Structure du flux
 
-- Le service TaskService utilise un BehaviorSubject pour stocker la liste des tâches.
-- Le composant Home se sert de ce flux via tasks$ et le pipe | async.
-
-# Mise à jour des données
-
-- La méthode addTask(title: string) ajoute une nouvelle tâche dans le tableau puis appelle next() sur le BehaviorSubject pour rendre la nouvelle liste.
-- Les composants prenant tasks$ reçoivent systématiquement la nouvelle valeur
-- La vue se met à jour sans rechargement
-
-# Concepts clés
-
-- BehaviorSubject : flux "vivant" qui conserve toujours la dernière valeur et notifie les composants quand une nouvelle valeur est disponible
-- Le flux de données fonctionne comme ceci : service -> composant -> template
-- Les données sont réactives : le composant et la vue sont synchronisés avec le service en temps réel
+### 1. Structure du flux
+-Le service `TaskService` utilise un **BehaviorSubject** pour stocker et diffuser la liste des tâches.
+-Le composant `Home` s’abonne à ce flux via `tasks$` et le **pipe async**.
+### 2. Mise à jour des données
+-La méthode `addTask()` ajoute une tâche puis appelle `next()` pour émettre la nouvelle liste.
+-La méthode `removeTask()` supprime une tâche puis émet à nouveau la liste mise à jour.
+-La vue est automatiquement réactualisée sans rechargement.
+### 3. Points clés retenus
+-Pas besoin d’appeler `getTasks()` à chaque fois : la donnée est **vivante**.
+-`| async` gère l’abonnement et le désabonnement automatiquement.
+-Le flux reste cohérent entre le service et la vue.
