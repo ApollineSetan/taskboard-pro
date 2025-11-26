@@ -1,21 +1,16 @@
-# Commandes
+# SEQUENCE 2 : Structure du flux
 
-- Création du projet :  
-  `ng new taskboard-pro --routing --style=css`
+- Le service TaskService utilise un BehaviorSubject pour stocker la liste des tâches.
+- Le composant Home se sert de ce flux via tasks$ et le pipe | async.
 
-- Navigation dans le dossier :  
-  `cd taskboard-pro`
+# SEQUENCE 2 : Mise à jour des données
 
-- Lancement du serveur :  
-  `ng serve`
+- La méthode addTask(title: string) ajoute une nouvelle tâche dans le tableau puis appelle next() sur le BehaviorSubject pour rendre la nouvelle liste.
+- Les composants prenant tasks$ reçoivent systématiquement la nouvelle valeur
+- La vue se met à jour sans rechargement
 
-- Création des composants :  
-  `ng g c nomDuComposant`
+# SEQUENCE 2 : Concepts clés
 
-
-# Routes fonctionnelles
-
-- http://localhost:4200/about  
-- http://localhost:4200/home  
-
-Routes placées dans le composant **Header**.
+- BehaviorSubject : flux "vivant" qui conserve toujours la dernière valeur et notifie les composants quand une nouvelle valeur est disponible
+- Le flux de données fonctionne comme ceci : service -> composant -> template
+- Les données sont réactives : le composant et la vue sont synchronisés avec le service en temps réel
