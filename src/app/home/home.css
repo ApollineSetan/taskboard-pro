@@ -1,0 +1,27 @@
+main {
+    background-color: #202524;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 1rem 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h2 {
+    color: white;
+}
+    
+p {
+    color: #ffffff;
+}
+
+.elapsed-time {
+    color: #a4fea7;
+}
+
+ul{
+    padding : 2rem;
+}
+
+li {
+    padding : 0 2rem;
+}

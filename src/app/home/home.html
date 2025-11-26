@@ -1,1 +1,21 @@
-<p>Page: HOME</p>
+<main>
+    <h2>Liste des tâches</h2>
+
+  <p class="elapsed-time">Temps écoulé : {{ count }} secondes</p>
+
+@if (tasks$ | async; as tasks) {
+  <ul>
+    @for (t of tasks; track t.id) {
+      <li>{{ t.title }}</li>
+    }
+  </ul>
+} @else {
+  <p>Chargement des tâches...</p>
+}
+
+<input type="text" [(ngModel)]="newTitle" placeholder="Titre de la tâche">
+<button (click)="addTask()">
+    Ajouter une tâche
+</button>
+
+</main>

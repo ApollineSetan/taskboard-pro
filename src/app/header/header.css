@@ -1,23 +1,27 @@
 nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 5rem;
   padding: 1rem 2rem;
-  background-color: #1e1e1e;
+  background-color: #202524;
+  color: white;
+  border: #4caf50 1px solid;
+  border-radius: 5px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 nav a {
-  color: #fff;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  color: white;
   font-weight: 500;
   transition: color 0.2s ease, border-bottom 0.2s ease;
 }
 
 nav a.active {
-  border-bottom: 2px solid #4caf50;
-  color: #4caf50;
+  border-bottom: 2px solid #67cb6b;
+  color: #67cb6b;
 }
 
 nav a:hover {
-  color: #4caf50;
+  color: #a4fea7;
 }
